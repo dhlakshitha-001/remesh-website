@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Domain — REMESH</title>
+<link rel="stylesheet" href="css/style.css"/>
+<style>
+.comp-badge{display:inline-flex;align-items:center;gap:0.3rem;font-size:0.68rem;font-weight:700;padding:0.22rem 0.65rem;border-radius:20px;margin-bottom:0.6rem;}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">RE<span>MESH</span></a>
+  <ul id="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="domain.html" class="active">Domain</a></li>
+    <li><a href="milestones.html">Milestones</a></li>
+    <li><a href="documents.html">Documents</a></li>
+    <li><a href="presentations.html">Presentations</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="page-header">
+  <div class="tag">Research Domain</div>
+  <h1>Literature, Problem &amp; Methodology</h1>
+  <p>Theoretical foundation, identified research gaps, problem statement, objectives, methodology, and technologies underpinning REMESH.</p>
+</div>
+
+<div class="container">
+
+  <!-- ── LITERATURE SURVEY ── -->
+  <div class="section-title">Literature Survey</div>
+
+  <div style="margin-bottom:2.5rem;">
+    <div class="lit-ref">
+      <div class="ref-title">IoT-Based Flood Monitoring Systems</div>
+      <p>Basha &amp; Rus (2007) established that wireless sensor networks at river monitoring points deliver significantly earlier warnings than centralised systems. Keoduangsine &amp; Goodwin (2012) demonstrated that GPRS/internet-dependent systems lose connectivity precisely during active flood events — the fundamental failure mode REMESH is designed to overcome. Rizal et al. (2024) showed multi-sensor IoT designs integrating water level, flow, rainfall, temperature, and humidity improve flood status classification significantly over single-sensor approaches, validating the seven-sensor main node design.</p>
+    </div>
+    <div class="lit-ref">
+      <div class="ref-title">LoRa Communication for Rural IoT</div>
+      <p>LoRa modulation achieves kilometre-scale transmission range at very low power, making it ideal for rural river basin sensor networks. Petäjäjärvi et al. (2015) confirmed 15 km suburban range at 868 MHz; 433 MHz provides even more favourable propagation characteristics. Dias &amp; Grilo (2018) demonstrated that randomised forwarding delays in LoRa mesh networks reduce packet collision probability by over 60% compared to fixed-delay forwarding — the direct basis for REMESH's 1.5–6 s repeater backoff strategy.</p>
+    </div>
+    <div class="lit-ref">
+      <div class="ref-title">Machine Learning for Flood Prediction</div>
+      <p>XGBoost (Chen &amp; Guestrin, 2016), Random Forest (Breiman, 2001), and Gradient Boosting (Friedman, 2001) have demonstrated strong performance on environmental datasets. Tehrany et al. (2014) established Logistic Regression as competitive with ensemble methods where a dominant hydrological feature — such as dam water level — forms a near-linear decision boundary, explaining REMESH's finding of superior Logistic Regression recall. Chawla et al. (2002) introduced SMOTE for principled minority-class interpolative oversampling, essential given the 1.8% flood prevalence in the Deduru Oya dataset (78 flood days in 4,383).</p>
+    </div>
+    <div class="lit-ref">
+      <div class="ref-title">Alert Systems &amp; Participatory Sensing</div>
+      <p>SMS alerting remains the most reliable last-mile communication channel in developing nations with limited smartphone penetration (ITU, 2023). Goodchild (2007) established participatory citizen emergency reporting via spatial heat maps as a critical complement to fixed-sensor monitoring — enabling rapid identification of impact zones that fall between static deployment points. This paradigm is integrated into the REMESH dashboard as a geo-tagged citizen alert module.</p>
+    </div>
+  </div>
+
+  <!-- ── RESEARCH GAP ── -->
+  <div class="section-title">Research Gap</div>
+  <div class="highlight-box" style="margin-bottom:2.5rem;">
+    <h2>Identified Gap</h2>
+    <p>
+      No prior system in literature integrates all four of the following into a single validated platform:
+      (1) a self-healing LoRa mesh communication layer that operates without internet connectivity;
+      (2) multi-sensor flood sensing (7 parameters) with automatic WiFi-to-LoRa fallback per transmission cycle;
+      (3) embedded machine learning inference running on commodity ESP32 hardware (no cloud dependency);
+      and (4) multi-channel community alerting (SMS + on-node audio + dashboard) — all validated against
+      real hydrological data from a named Sri Lankan river basin. Existing systems address subsets of these
+      requirements but invariably assume internet or cloud availability, making them unreliable in the very
+      conditions that define a major flood event.
+    </p>
+  </div>
+
+  <!-- ── RESEARCH PROBLEM ── -->
+  <div class="section-title">Research Problem</div>
+  <div class="problem-box" style="margin-bottom:2.5rem;">
+    <h2>Problem Statement</h2>
+    <p>
+      Centralised flood monitoring systems in rural Sri Lanka depend on continuous internet connectivity
+      and cloud infrastructure for data transmission, ML inference, and alert dissemination.
+      During major flood events — when these systems are most critically needed — both internet
+      connectivity and power infrastructure are disrupted, rendering existing deployments non-functional
+      at the moment of peak community risk. There is a need for a low-cost, fully offline-capable,
+      self-healing flood early warning system that operates end-to-end without internet dependency,
+      specifically validated for tropical river basin conditions in Sri Lanka.
+    </p>
+  </div>
+
+  <!-- ── OBJECTIVES ── -->
+  <div class="section-title">Research Objectives</div>
+  <ul class="obj-list" style="margin-bottom:2.5rem;">
+    <li>
+      <span class="obj-num">O1</span>
+      Design and implement a three-tier distributed IoT node architecture — main sensor nodes (7 sensors, GPS, solar), repeater nodes (LoRa relay, offline dashboard), and end nodes (WiFi bridge, audio alert) — with automatic WiFi-to-LoRa fallback and watertight solar-powered enclosures for deployment at Deduru Oya basin upstream monitoring points.
+    </li>
+    <li>
+      <span class="obj-num">O2</span>
+      Develop a custom binary packet compression scheme reducing LoRa payload by ~88% (600 bytes JSON → ~70 bytes binary), a lightweight XOR rolling-counter encryption scheme for resource-constrained ESP32 nodes, and a multi-hop mesh routing protocol with loop prevention, duplicate suppression, and collision-avoidance backoff.
+    </li>
+    <li>
+      <span class="obj-num">O3</span>
+      Construct a real 10-year hydrological dataset from the Moragaswewa gauging station (2015–2025), apply SMOTE oversampling to address 1.8% flood class prevalence, and perform comparative evaluation of five ML classifiers (Logistic Regression, SVM, XGBoost, Random Forest, Gradient Boosting) for binary flood risk prediction, selecting the best model for ESP32 deployment.
+    </li>
+    <li>
+      <span class="obj-num">O4</span>
+      Build a centralised Laravel web dashboard integrating real-time sensor monitoring with Rivernet.lk data, ML flood risk visualisation (Low/Moderate/High/Critical), SMS alerting, DFPlayer audio alert triggering, geo-tagged citizen emergency reporting with heat-map display, and role-based access control for public users, district operators, and system administrators.
+    </li>
+  </ul>
+
+  <!-- ── SENSOR DIAGRAM ── -->
+  <div class="section-title">Hardware Design — Main Node Sensor Array</div>
+  <div class="card" style="margin-bottom:2.5rem;padding:1.5rem 1.8rem 2rem;">
+    <p style="font-size:0.85rem;color:var(--muted);margin-bottom:1.2rem;">ESP32 microcontroller at the centre, interfacing all 7 sensors plus LoRa, GPS, and battery monitor across Digital, ADC, UART, SPI, and I²C buses.</p>
+    <svg viewBox="0 0 860 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+      <defs>
+        <marker id="sa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+          <path d="M2 2L8 5L2 8" fill="none" stroke="#00d4aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </marker>
+        <marker id="sb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+          <path d="M2 2L8 5L2 8" fill="none" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </marker>
+        <marker id="sc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+          <path d="M2 2L8 5L2 8" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </marker>
+      </defs>
+
+      <!-- ESP32 CENTRE -->
+      <rect x="320" y="85" width="220" height="100" rx="11" fill="#0d1d35" stroke="#00d4aa" stroke-width="2.2"/>
+      <text x="430" y="115" text-anchor="middle" fill="#00d4aa"  font-size="14" font-family="Outfit,sans-serif" font-weight="800">ESP32</text>
+      <text x="430" y="133" text-anchor="middle" fill="#dce8f5" font-size="10" font-family="Outfit,sans-serif">Dual-core · 240 MHz</text>
+      <text x="430" y="149" text-anchor="middle" fill="#aac0d8" font-size="10" font-family="Outfit,sans-serif">WiFi · BT · 12-bit ADC</text>
+      <text x="430" y="165" text-anchor="middle" fill="#aac0d8" font-size="10" font-family="Outfit,sans-serif">UART · SPI · I²C</text>
+
+      <!-- LEFT SENSORS (Teal group) -->
+      <!-- DHT11 -->
+      <rect x="12" y="18" width="148" height="48" rx="8" fill="#0a1628" stroke="#1a3050" stroke-width="1.2"/>
+      <text x="86" y="39"  text-anchor="middle" fill="#dce8f5" font-size="11" font-family="Outfit,sans-serif" font-weight="700">DHT11</text>
+      <text x="86" y="55"  text-anchor="middle" fill="#aac0d8" font-size="9.5" font-family="Outfit,sans-serif">Temperature · Humidity</text>
+      <line x1="160" y1="42" x2="320" y2="118" stroke="#00d4aa" stroke-width="1.4" stroke-dasharray="5 3" marker-end="url(#sa)" opacity="0.6"/>
+      <text x="238" y="74"  text-anchor="middle" fill="#00d4aa" font-size="9" font-family="Outfit,sans-serif" font-weight="600">Digital</text>
+
+      <!-- Rain x2 -->
+      <rect x="12" y="88" width="148" height="48" rx="8" fill="#0a1628" stroke="#1a3050" stroke-width="1.2"/>
+      <text x="86" y="109" text-anchor="middle" fill="#dce8f5" font-size="11" font-family="Outfit,sans-serif" font-weight="700">Rain Sensor ×2</text>
+      <text x="86" y="125" text-anchor="middle" fill="#aac0d8" font-size="9.5" font-family="Outfit,sans-serif">Rainfall Intensity %</text>
+      <line x1="160" y1="112" x2="320" y2="130" stroke="#00d4aa" stroke-width="1.4" stroke-dasharray="5 3" marker-end="url(#sa)" opacity="0.6"/>
+      <text x="238" y="117" text-anchor="middle" fill="#00d4aa" font-size="9" font-family="Outfit,sans-serif" font-weight="600">ADC · 8-sample avg</text>
+
+      <!-- Turbidity -->
+      <rect x="12" y="158" width="148" height="48" rx="8" fill="#0a1628" stroke="#1a3050" stroke-width="1.2"/>
+      <text x="86" y="179" text-anchor="middle" fill="#dce8f5" font-size="11" font-family="Outfit,sans-serif" font-weight="700">Turbidity Sensor</text>
+      <text x="86" y="195" text-anchor="middle" fill="#aac0d8" font-size="9.5" font-family="Outfit,sans-serif">Water Clarity 0–100%</text>
+      <line x1="160" y1="182" x2="320" y2="148" stroke="#00d4aa" stroke-width="1.4" stroke-dasharray="5 3" marker-end="url(#sa)" opacity="0.6"/>
+
+      <!-- pH -->
+      <rect x="12" y="228" width="148" height="48" rx="8" fill="#0a1628" stroke="#1a3050" stroke-width="1.2"/>
+      <text x="86" y="249" text-anchor="middle" fill="#dce8f5" font-size="11" font-family="Outfit,sans-serif" font-weight="700">pH Sensor</text>
+      <text x="86" y="265" text-anchor="middle" fill="#aac0d8" font-size="9.5" font-family="Outfit,sans-serif">Acidity 0–14 pH</text>
+      <line x1="160" y1="252" x2="320" y2="162" stroke="#00d4aa" stroke-width="1.4" stroke-dasharray="5 3" marker-end="url(#sa)" opacity="0.6"/>
+      <text x="218" y="220" text-anchor="middle" fill="#00d4aa" font-size="9" font-family="Outfit,sans-serif" font-weight="600">ADC</text>
+
+      <!-- RIGHT SENSORS (Amber group) -->
+      <!-- S201C Flow -->
+      <rect x="700" y="18" width="148" height="48" rx="8" fill="#0a1628" stroke="#1a3050" stroke-width="1.2"/>
+      <text x="774" y="39"  text-anchor="middle" fill="#dce8f5" font-size="11" font-family="Outfit,sans-serif" font-weight="700">S201C Flow</text>
+      <text x="774" y="55"  text-anchor="middle" fill="#aac0d8" font-size="9.5" font-family="Outfit,sans-serif">1–30 L/min · 450 p/L</text>
+      <line x1="700" y1="42" x2="540" y2="118" stroke="#fbbf24" stroke-width="1.4" stroke-dasharray="5 3" marker-end="url(#sb)" opacity="0.6"/>
+      <text x="622" y="74"  text-anchor="middle" fill="#fbbf24" font-size="9" font-family="Outfit,sans-serif" font-weight="600">IRQ pin 32</text>
+
+      <!-- NEO-6M GPS -->
+      <rect x="700" y="88" width="148" height="48" rx="8" fill="#0a1628" stroke="#1a3050" stroke-width="1.2"/>
+      <text x="774" y="109" text-anchor="middle" fill="#dce8f5" font-size="11" font-family="Outfit,sans-serif" font-weight="700">NEO-6M GPS</text>
+      <text x="774" y="125" text-anchor="middle" fill="#aac0d8" font-size="9.5" font-family="Outfit,sans-serif">Location · Speed · Sats</text>
+      <line x1="700" y1="112" x2="540" y2="130" stroke="#fbbf24" stroke-width="1.4" stroke-dasharray="5 3" marker-end="url(#sb)" opacity="0.6"/>
+      <text x="622" y="117" text-anchor="middle" fill="#fbbf24" font-size="9" font-family="Outfit,sans-serif" font-weight="600">UART2</text>
+
+      <!-- INA219 -->
+      <rect x="700" y="158" width="148" height="48" rx="8" fill="#0a1628" stroke="#1a3050" stroke-width="1.2"/>
+      <text x="774" y="179" text-anchor="middle" fill="#dce8f5" font-size="11" font-family="Outfit,sans-serif" font-weight="700">INA219</text>
+      <text x="774" y="195" text-anchor="middle" fill="#aac0d8" font-size="9.5" font-family="Outfit,sans-serif">Battery V · I · Power</text>
+      <line x1="700" y1="182" x2="540" y2="148" stroke="#fbbf24" stroke-width="1.4" stroke-dasharray="5 3" marker-end="url(#sb)" opacity="0.6"/>
+      <text x="622" y="160" text-anchor="middle" fill="#fbbf24" font-size="9" font-family="Outfit,sans-serif" font-weight="600">I²C</text>
+
+      <!-- LoRa SX1278 -->
+      <rect x="700" y="228" width="148" height="48" rx="8" fill="#0a1628" stroke="#a78bfa" stroke-width="1.4"/>
+      <text x="774" y="249" text-anchor="middle" fill="#a78bfa" font-size="11" font-family="Outfit,sans-serif" font-weight="700">LoRa SX1278</text>
+      <text x="774" y="265" text-anchor="middle" fill="#aac0d8" font-size="9.5" font-family="Outfit,sans-serif">433 MHz · 14 dBm TX</text>
+      <line x1="700" y1="252" x2="540" y2="162" stroke="#a78bfa" stroke-width="1.4" stroke-dasharray="5 3" marker-end="url(#sc)" opacity="0.6"/>
+      <text x="628" y="220" text-anchor="middle" fill="#a78bfa" font-size="9" font-family="Outfit,sans-serif" font-weight="600">SPI</text>
+    </svg>
+  </div>
+
+  <!-- ── METHODOLOGY ── -->
+  <div class="section-title">Methodology</div>
+
+  <div style="margin-bottom:2.5rem;">
+    <div class="method-step">
+      <div class="step-icon">⚙️</div>
+      <div>
+        <h3>Phase 1 — Hardware Design &amp; Assembly</h3>
+        <p>ESP32 + SX1278 LoRa nodes assembled on veroboard with 3×18650 battery packs regulated by LM2596 buck converters and recharged by 5V 100 mA solar panels. Main node integrates all 7 sensors in a watertight enclosure with GPS antenna and INA219 battery monitor. Repeater and end nodes in sealed outdoor enclosures. Adaptive transmission interval (60 s at full charge → 1800 s at &lt;20% battery) conserves energy during monsoon cloud cover.</p>
+      </div>
+    </div>
+    <div class="method-step">
+      <div class="step-icon">📡</div>
+      <div>
+        <h3>Phase 2 — LoRa Mesh Firmware</h3>
+        <p>Custom <strong style="color:var(--text);">SensorPacket struct</strong> encodes all telemetry as fixed-size binary fields (lat, lng, speed, sats, temp, hum, flow, rain×2, turb, pH, timestamp, hop trail) and copies directly into a uint8_t buffer via memcpy — reducing ~600 byte JSON to ~70 bytes. XOR rolling-counter encryption: C[i] = P[i] ⊕ K ⊕ n, where K = 0x5A and n is the per-packet counter prepended as frame byte 0. Repeater routing pipeline: (1) loop prevention via hop-trail DEVICE_ID check, (2) duplicate suppression via 15-entry timestamp circular cache, (3) hop augmentation appending {DEVICE_ID, RSSI}, (4) randomised 1.5–6 s re-encrypt and forward.</p>
+      </div>
+    </div>
+    <div class="method-step">
+      <div class="step-icon">🤖</div>
+      <div>
+        <h3>Phase 3 — ML Dataset Construction &amp; Model Training</h3>
+        <p>Primary data: Moragaswewa gauging station (7°43'39"N, 80°05'46"E), 321 verified days (2015–2024) + 6 days hourly from November 2025 Cyclone Ditwah (peak WL = 9.15 m, peak Q = 895.4 m³/s). Gap-filled via log-polynomial regression on Chilaw downstream gauge (R² = 0.663 for WL, R² = 0.724 for Q, 4,290-day record). Basin rainfall from 7 government rain gauges; meteorological data from Open-Meteo API across 21 lowland stations. Final dataset: 4,383 daily records, 11 features. Flood label: dam_water_level &gt; 5.0 m → 78 flood days (1.8%). SMOTE generated 4,227 synthetic flood samples → balanced 50/50 training set of 8,610 rows. Five classifiers under 75/25 stratified split with 5-fold GridSearchCV tuning.</p>
+      </div>
+    </div>
+    <div class="method-step">
+      <div class="step-icon">📊</div>
+      <div>
+        <h3>Phase 4 — Dashboard Development</h3>
+        <p>Laravel REST API exposing <code style="font-size:0.82rem;color:var(--cyan);background:rgba(56,189,248,0.08);padding:0.1rem 0.4rem;border-radius:4px;">/api/v1/telemetry</code> for end-node telemetry (full hop trail), <code style="font-size:0.82rem;color:var(--cyan);background:rgba(56,189,248,0.08);padding:0.1rem 0.4rem;border-radius:4px;">/api/v1/traditional-telemetry</code> for WiFi-direct main node data, and <code style="font-size:0.82rem;color:var(--cyan);background:rgba(56,189,248,0.08);padding:0.1rem 0.4rem;border-radius:4px;">/api/v1/emergency-alerts/active</code> polled every 60 s by end nodes to trigger DFPlayer audio. Integrates Rivernet.lk live river levels. Citizen emergency geo-tagged submissions aggregated as heat map. Role-based access: public / district operator / system admin.</p>
+      </div>
+    </div>
+    <div class="method-step">
+      <div class="step-icon">🧪</div>
+      <div>
+        <h3>Phase 5 — Lab Testing &amp; Validation</h3>
+        <p>LoRa open-field range test: 1 km confirmed at 14 dBm TX power (Ra-02 SX1278, 433 MHz); &gt;10 km estimated for Deduru Oya basin flatlands based on datasheet specs and Petäjäjärvi et al. (2015). Sensor calibration against reference instruments. ML tested on original unaugmented 4,383-row dataset (not SMOTE-augmented), reflecting real-world class distribution. End-to-end latency: &lt;3 s via WiFi/HTTP; &lt;15 s via 2-hop LoRa mesh (dominated by randomised repeater backoff). Logistic Regression selected: FN = 3, highest recall (99.42%), lowest ESP32 compute overhead.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── ML MODEL COMPARISON DIAGRAM ── -->
+  <div class="section-title">ML Model Comparison — Recall &amp; False Negatives</div>
+  <div class="card" style="margin-bottom:2.5rem;padding:1.8rem 2rem 2rem;">
+    <p style="font-size:0.85rem;color:var(--muted);margin-bottom:1.4rem;">Five classifiers evaluated on the original unaugmented test set (n = 1,096 records, 25% of 4,383). Lower false negatives (FN) is operationally critical — a missed flood event carries the greatest consequence.</p>
+    <svg viewBox="0 0 760 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+
+      <!-- Y axis label -->
+      <text x="14" y="145" fill="#6b8aaa" font-size="9" font-family="Outfit,sans-serif" text-anchor="middle" transform="rotate(-90,14,145)">Recall %</text>
+
+      <!-- Grid lines + y labels -->
+      <line x1="70" y1="30"  x2="740" y2="30"  stroke="#1a3050" stroke-width="0.8"/>
+      <line x1="70" y1="70"  x2="740" y2="70"  stroke="#1a3050" stroke-width="0.8"/>
+      <line x1="70" y1="110" x2="740" y2="110" stroke="#1a3050" stroke-width="0.8"/>
+      <line x1="70" y1="150" x2="740" y2="150" stroke="#1a3050" stroke-width="0.8"/>
+      <line x1="70" y1="190" x2="740" y2="190" stroke="#1a3050" stroke-width="0.8"/>
+
+      <text x="58" y="33"  text-anchor="end" fill="#6b8aaa" font-size="9.5" font-family="Outfit,sans-serif">100%</text>
+      <text x="58" y="73"  text-anchor="end" fill="#6b8aaa" font-size="9.5" font-family="Outfit,sans-serif">99%</text>
+      <text x="58" y="113" text-anchor="end" fill="#6b8aaa" font-size="9.5" font-family="Outfit,sans-serif">98%</text>
+      <text x="58" y="153" text-anchor="end" fill="#6b8aaa" font-size="9.5" font-family="Outfit,sans-serif">97%</text>
+      <text x="58" y="193" text-anchor="end" fill="#6b8aaa" font-size="9.5" font-family="Outfit,sans-serif">96%</text>
+
+      <!-- Bars: recall range 96%–100% maps to y 190→30, so 1% = 40px -->
+      <!-- LR: 99.42% → y = 190 - (99.42-96)*40 = 190 - 136.8 = 53.2, h = 190-53.2 = 136.8 -->
+      <rect x="90"  y="53"  width="90" height="137" rx="5" fill="#00d4aa" opacity="0.9"/>
+      <text x="135" y="44"  text-anchor="middle" fill="#00d4aa" font-size="10.5" font-family="Outfit,sans-serif" font-weight="800">99.42%</text>
+      <text x="135" y="205" text-anchor="middle" fill="#dce8f5" font-size="9.5" font-family="Outfit,sans-serif" font-weight="700">Logistic Reg.</text>
+      <text x="135" y="218" text-anchor="middle" fill="#00d4aa" font-size="9" font-family="Outfit,sans-serif">★ Deployed · FN=3</text>
+
+      <!-- SVM: 99.23% → y = 190 - (99.23-96)*40 = 190 - 129.2 = 60.8 -->
+      <rect x="215" y="61"  width="90" height="129" rx="5" fill="#38bdf8" opacity="0.8"/>
+      <text x="260" y="51"  text-anchor="middle" fill="#38bdf8" font-size="10.5" font-family="Outfit,sans-serif" font-weight="700">99.23%</text>
+      <text x="260" y="205" text-anchor="middle" fill="#dce8f5" font-size="9.5" font-family="Outfit,sans-serif" font-weight="700">SVM (RBF)</text>
+      <text x="260" y="218" text-anchor="middle" fill="#aac0d8" font-size="9" font-family="Outfit,sans-serif">FN = 4</text>
+
+      <!-- GB: 98.66% → y = 190 - (98.66-96)*40 = 190 - 106.4 = 83.6 -->
+      <rect x="340" y="84"  width="90" height="106" rx="5" fill="#a78bfa" opacity="0.75"/>
+      <text x="385" y="74"  text-anchor="middle" fill="#a78bfa" font-size="10.5" font-family="Outfit,sans-serif" font-weight="700">98.66%</text>
+      <text x="385" y="205" text-anchor="middle" fill="#dce8f5" font-size="9.5" font-family="Outfit,sans-serif" font-weight="700">Grad. Boosting</text>
+      <text x="385" y="218" text-anchor="middle" fill="#aac0d8" font-size="9" font-family="Outfit,sans-serif">FN = 7</text>
+
+      <!-- XGB: 98.27% → y = 190 - (98.27-96)*40 = 190 - 90.8 = 99.2 -->
+      <rect x="465" y="99"  width="90" height="91" rx="5" fill="#fbbf24" opacity="0.75"/>
+      <text x="510" y="89"  text-anchor="middle" fill="#fbbf24" font-size="10.5" font-family="Outfit,sans-serif" font-weight="700">98.27%</text>
+      <text x="510" y="205" text-anchor="middle" fill="#dce8f5" font-size="9.5" font-family="Outfit,sans-serif" font-weight="700">XGBoost</text>
+      <text x="510" y="218" text-anchor="middle" fill="#aac0d8" font-size="9" font-family="Outfit,sans-serif">FN = 9</text>
+
+      <!-- RF: 96.16% → y = 190 - (96.16-96)*40 = 190 - 6.4 = 183.6 -->
+      <rect x="590" y="184" width="90" height="6" rx="3" fill="#f87171" opacity="0.8"/>
+      <text x="635" y="174" text-anchor="middle" fill="#f87171" font-size="10.5" font-family="Outfit,sans-serif" font-weight="700">96.16%</text>
+      <text x="635" y="205" text-anchor="middle" fill="#dce8f5" font-size="9.5" font-family="Outfit,sans-serif" font-weight="700">Random Forest</text>
+      <text x="635" y="218" text-anchor="middle" fill="#aac0d8" font-size="9" font-family="Outfit,sans-serif">FN = 20</text>
+
+      <!-- X axis baseline -->
+      <line x1="70" y1="190" x2="740" y2="190" stroke="#234570" stroke-width="1.5"/>
+
+      <!-- annotation: deployed -->
+      <rect x="84" y="8" width="102" height="18" rx="4" fill="rgba(0,212,170,0.15)" stroke="rgba(0,212,170,0.3)" stroke-width="1"/>
+      <text x="135" y="20" text-anchor="middle" fill="#00d4aa" font-size="8.5" font-family="Outfit,sans-serif" font-weight="700">↑ SELECTED MODEL</text>
+
+      <!-- note -->
+      <text x="405" y="245" text-anchor="middle" fill="#6b8aaa" font-size="8.5" font-family="Outfit,sans-serif">Test set: n = 1,096 records · Original unaugmented dataset · FN = false negatives (missed floods)</text>
+    </svg>
+  </div>
+
+  <!-- ── TECHNOLOGIES ── -->
+  <div class="section-title">Technologies Used</div>
+  <div class="tech-grid">
+    <div class="tech-item">
+      <span class="t-icon">⚙️</span>
+      <div class="t-name">ESP32</div>
+      <div class="t-desc">Dual-core 240 MHz with built-in WiFi/BT, 12-bit ADC, UART, SPI, I²C — main compute on all three node tiers</div>
+    </div>
+    <div class="tech-item">
+      <span class="t-icon">📡</span>
+      <div class="t-name">LoRa SX1278 (Ra-02)</div>
+      <div class="t-desc">433 MHz, 14 dBm TX, −148 dBm sensitivity, ~10 km open terrain range · SPI interface</div>
+    </div>
+    <div class="tech-item">
+      <span class="t-icon">🐘</span>
+      <div class="t-name">Laravel</div>
+      <div class="t-desc">PHP framework for REST API, dashboard, SMS dispatch, citizen reports, and role-based access control</div>
+    </div>
+    <div class="tech-item">
+      <span class="t-icon">🤖</span>
+      <div class="t-name">scikit-learn + SMOTE</div>
+      <div class="t-desc">ML pipeline: StandardScaler, 5-fold GridSearchCV, SMOTE oversampling, 5 classifiers evaluated</div>
+    </div>
+    <div class="tech-item">
+      <span class="t-icon">☀️</span>
+      <div class="t-name">Solar + 18650 LiPo</div>
+      <div class="t-desc">5V 100 mA solar panels + 3×18650 cells regulated by LM2596 buck converter for off-grid operation</div>
+    </div>
+    <div class="tech-item">
+      <span class="t-icon">🌊</span>
+      <div class="t-name">Rivernet.lk Integration</div>
+      <div class="t-desc">Live official river water level data for the Deduru Oya basin supplementing IoT node readings</div>
+    </div>
+    <div class="tech-item">
+      <span class="t-icon">🔊</span>
+      <div class="t-name">DFPlayer Mini</div>
+      <div class="t-desc">MP3 module on end nodes driving 4 Ω 5 W speaker for community-level audio flood alerts</div>
+    </div>
+    <div class="tech-item">
+      <span class="t-icon">📍</span>
+      <div class="t-name">NEO-6M GPS</div>
+      <div class="t-desc">Ublox GPS module for main node geolocation via TinyGPS++ library · enables spatial dashboard mapping</div>
+    </div>
+    <div class="tech-item">
+      <span class="t-icon">🔒</span>
+      <div class="t-name">XOR Rolling-Counter Encryption</div>
+      <div class="t-desc">Lightweight C[i]=P[i]⊕K⊕n scheme — semantically secure against replay, minimal CPU overhead on ESP32</div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <strong>REMESH</strong> — Resilient Mesh Sensor Hub &nbsp;|&nbsp; SLIIT Research Project 2024–2025
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>

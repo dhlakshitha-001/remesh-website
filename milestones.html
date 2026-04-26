@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Milestones — REMESH</title>
+<link rel="stylesheet" href="css/style.css"/>
+<style>
+.timeline-bar {
+  background: var(--panel); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 1.2rem 1.5rem;
+  margin-bottom: 2rem; display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap;
+}
+.tl-item { display:flex; flex-direction:column; align-items:center; gap:0.3rem; }
+.tl-dot { width:12px; height:12px; border-radius:50%; }
+.tl-lbl { font-size:0.68rem; color:var(--muted); }
+.tl-line { flex:1; height:2px; background:var(--border); min-width:30px; }
+.tl-line.done { background: var(--teal); }
+.arrow-chevron { color:var(--muted); font-size:0.8rem; }
+.marks-badge {
+  display:inline-block; font-size:0.72rem; font-weight:700;
+  background:rgba(56,189,248,0.1); color:var(--cyan);
+  border:1px solid rgba(56,189,248,0.2); border-radius:20px;
+  padding:0.2rem 0.65rem; margin-left:0.5rem;
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">RE<span>MESH</span></a>
+  <ul id="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="domain.html">Domain</a></li>
+    <li><a href="milestones.html" class="active">Milestones</a></li>
+    <li><a href="documents.html">Documents</a></li>
+    <li><a href="presentations.html">Presentations</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="page-header">
+  <div class="tag">Project Milestones</div>
+  <h1>Assessments & Progress</h1>
+  <p>All project assessment milestones with dates, marks allocated, and current status.</p>
+</div>
+
+<div class="container">
+
+  <!-- Progress timeline visual -->
+  <div class="timeline-bar">
+    <div class="tl-item">
+      <div class="tl-dot" style="background:var(--teal);"></div>
+      <div class="tl-lbl">Proposal</div>
+    </div>
+    <div class="tl-line done"></div>
+    <div class="tl-item">
+      <div class="tl-dot" style="background:var(--teal);"></div>
+      <div class="tl-lbl">Progress 1</div>
+    </div>
+    <div class="tl-line done"></div>
+    <div class="tl-item">
+      <div class="tl-dot" style="background:var(--amber);"></div>
+      <div class="tl-lbl">Progress 2</div>
+    </div>
+    <div class="tl-line"></div>
+    <div class="tl-item">
+      <div class="tl-dot" style="background:var(--border);"></div>
+      <div class="tl-lbl">Final</div>
+    </div>
+    <div class="tl-line"></div>
+    <div class="tl-item">
+      <div class="tl-dot" style="background:var(--border);"></div>
+      <div class="tl-lbl">Viva</div>
+    </div>
+  </div>
+
+  <div class="section-title">All Assessments</div>
+
+  <!-- M1: Project Proposal -->
+  <div class="milestone-item">
+    <div class="milestone-head">
+      <div class="milestone-num">01</div>
+      <div class="milestone-title">Project Proposal</div>
+      <div class="milestone-date">[ Add Date ]</div>
+      <div class="milestone-status status-done">Completed</div>
+      <span class="arrow">▼</span>
+    </div>
+    <div class="milestone-body open">
+      <p>Initial project proposal presenting the REMESH concept, problem statement, objectives, and planned methodology for a resilient LoRa mesh IoT flood early warning system for the Deduru Oya river basin, Sri Lanka.</p>
+      <div class="milestone-meta">
+        <span><strong>Date:</strong> [ Add Date ]</span>
+        <span><strong>Marks Allocated:</strong> <span class="marks-badge">[ XX% ]</span></span>
+        <span><strong>Status:</strong> Completed ✓</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- M2: Progress 1 -->
+  <div class="milestone-item">
+    <div class="milestone-head">
+      <div class="milestone-num">02</div>
+      <div class="milestone-title">Progress Presentation — 1</div>
+      <div class="milestone-date">[ Add Date ]</div>
+      <div class="milestone-status status-done">Completed</div>
+      <span class="arrow">▼</span>
+    </div>
+    <div class="milestone-body">
+      <p>First progress presentation covering: completion of hardware node assembly (main node, repeater, end node), LoRa mesh firmware implementation including binary compression and XOR encryption, and initial dataset construction from Moragaswewa gauging station records.</p>
+      <div class="milestone-meta">
+        <span><strong>Date:</strong> [ Add Date ]</span>
+        <span><strong>Marks Allocated:</strong> <span class="marks-badge">[ XX% ]</span></span>
+        <span><strong>Status:</strong> Completed ✓</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- M3: Progress 2 -->
+  <div class="milestone-item">
+    <div class="milestone-head">
+      <div class="milestone-num">03</div>
+      <div class="milestone-title">Progress Presentation — 2</div>
+      <div class="milestone-date">[ Add Date ]</div>
+      <div class="milestone-status status-done">Completed</div>
+      <span class="arrow">▼</span>
+    </div>
+    <div class="milestone-body">
+      <p>Second progress presentation covering: ML model training results (5 classifiers with SMOTE), comparative evaluation with Logistic Regression selected as deployed model (99.42% recall, FN=3), Laravel dashboard development including real-time monitoring, SMS alerting and citizen heat-map module, and lab testing results.</p>
+      <div class="milestone-meta">
+        <span><strong>Date:</strong> [ Add Date ]</span>
+        <span><strong>Marks Allocated:</strong> <span class="marks-badge">[ XX% ]</span></span>
+        <span><strong>Status:</strong> Completed ✓</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- M4: Final Assessment -->
+  <div class="milestone-item">
+    <div class="milestone-head">
+      <div class="milestone-num">04</div>
+      <div class="milestone-title">Final Assessment</div>
+      <div class="milestone-date">[ Add Date ]</div>
+      <div class="milestone-status status-upcoming">Upcoming</div>
+      <span class="arrow">▼</span>
+    </div>
+    <div class="milestone-body">
+      <p>Final project assessment presenting the complete REMESH system — all four components integrated and validated through lab testing. Includes: full end-to-end demonstration, IEEE-format research paper submission, comprehensive final documentation (4 individual reports + combined), and system demo.</p>
+      <div class="milestone-meta">
+        <span><strong>Date:</strong> [ Add Date ]</span>
+        <span><strong>Marks Allocated:</strong> <span class="marks-badge">[ XX% ]</span></span>
+        <span><strong>Status:</strong> Upcoming</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- M5: Viva -->
+  <div class="milestone-item">
+    <div class="milestone-head">
+      <div class="milestone-num">05</div>
+      <div class="milestone-title">Viva Voce</div>
+      <div class="milestone-date">[ Add Date ]</div>
+      <div class="milestone-status status-upcoming">Upcoming</div>
+      <span class="arrow">▼</span>
+    </div>
+    <div class="milestone-body">
+      <p>Individual oral examination on REMESH system design, implementation decisions, and research findings. Each team member will be assessed on their specific component: IoT hardware, LoRa routing, ML prediction, and dashboard development.</p>
+      <div class="milestone-meta">
+        <span><strong>Date:</strong> [ Add Date ]</span>
+        <span><strong>Marks Allocated:</strong> <span class="marks-badge">[ XX% ]</span></span>
+        <span><strong>Status:</strong> Upcoming</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <strong>REMESH</strong> — Resilient Mesh Sensor Hub &nbsp;|&nbsp; SLIIT Research Project 2024–2025
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>
