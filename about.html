@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>About Us — REMESH</title>
+<title>About Us - REMESH</title>
 <link rel="stylesheet" href="css/style.css"/>
 <style>
 .supervisor-grid {
@@ -41,13 +41,12 @@
   font-size: 0.68rem; font-weight: 700; letter-spacing: 1px;
   text-transform: uppercase; margin-bottom: 0.4rem;
 }
-.sup-card.primary   .sup-type { color: var(--teal); }
+.sup-card.primary .sup-type { color: var(--teal); }
 .sup-card.secondary .sup-type { color: var(--cyan); }
 .sup-info .sup-dept { font-size: 0.8rem; color: var(--text2); margin-bottom: 0.5rem; line-height: 1.5; }
 .sup-info a { font-size: 0.78rem; color: var(--muted); text-decoration: none; }
 .sup-info a:hover { color: var(--teal); }
 
-/* TEAM GRID */
 .team-grid {
   display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.3rem;
   margin-bottom: 2.5rem;
@@ -67,14 +66,39 @@
 }
 
 .member-avatar {
-  width: 76px; height: 76px; flex-shrink: 0;
-  border-radius: var(--radius2);
-  background: var(--panel); border: 2px dashed var(--border);
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  font-size: 1.6rem; gap: 0.3rem;
+  width: 180px; flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
 }
-.member-avatar .av-label { font-size: 0.58rem; color: var(--muted); }
+
+.member-photo {
+  width: 180px; height: 180px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #f7fbfe, #edf6fb);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
+}
+
+.member-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.member-avatar .av-label {
+  font-size: 0.68rem;
+  color: var(--muted);
+  text-align: center;
+  padding: 0.24rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(21, 50, 74, 0.06);
+  border: 1px solid var(--border);
+  min-width: 88px;
+}
 
 .member-meta { flex: 1; }
 .member-meta .comp-badge {
@@ -104,7 +128,6 @@
 .member-body p { font-size: 0.84rem; color: var(--text2); line-height: 1.72; }
 .member-body .tags { margin-top: 0.7rem; }
 
-/* project info */
 .project-info {
   display: grid; grid-template-columns: 1fr 1fr; gap: 1.3rem; margin-bottom: 2.5rem;
 }
@@ -131,6 +154,8 @@
   .supervisor-grid { grid-template-columns: 1fr; }
   .team-grid { grid-template-columns: 1fr; }
   .project-info { grid-template-columns: 1fr; }
+  .member-top { flex-direction: column; align-items: center; text-align: center; }
+  .member-meta { width: 100%; }
 }
 </style>
 </head>
@@ -153,66 +178,63 @@
 <div class="page-header">
   <div class="tag">About Us</div>
   <h1>The REMESH Team</h1>
-  <p>Four researchers, four components — one integrated offline-capable flood early warning system for Sri Lanka.</p>
+  <p>Four researchers, four components - one integrated offline-capable flood early warning system for Sri Lanka.</p>
 </div>
 
 <div class="container">
 
-  <!-- ── SUPERVISORS ── -->
   <div class="section-title">Supervisors</div>
   <div class="supervisor-grid">
 
-    <!-- Supervisor -->
     <div class="sup-card primary">
       <div class="sup-avatar-wrap">
-        <div class="sup-avatar">👨‍🏫</div>
+        <div class="sup-avatar">SP</div>
         <div class="sup-avatar-label">Supervisor</div>
       </div>
       <div class="sup-info">
         <div class="sup-type">Supervisor</div>
-        <h3>Mr.Uditha Dharmakeerthi</h3>
-        <div class="sup-dept">[ Title ]<br/>[ Department ] — SLIIT</div>
-        <a href="mailto:supervisor@sliit.lk">✉ [ supervisor@sliit.lk ]</a>
+        <h3>Mr. Uditha Dharmakeerthi</h3>
+        <div class="sup-dept">[ Title ]<br/>[ Department ] - SLIIT</div>
+        <a href="mailto:supervisor@sliit.lk">[ supervisor@sliit.lk ]</a>
       </div>
     </div>
 
-    <!-- Co-Supervisor -->
     <div class="sup-card secondary">
       <div class="sup-avatar-wrap">
-        <div class="sup-avatar">👩‍🏫</div>
+        <div class="sup-avatar">CS</div>
         <div class="sup-avatar-label">Co-Supervisor</div>
       </div>
       <div class="sup-info">
         <div class="sup-type">Co-Supervisor</div>
         <h3>Mr. Amila Senarathne</h3>
-        <div class="sup-dept">[ Title ]<br/>[ Department ] — SLIIT</div>
-        <a href="mailto:cosupervisor@sliit.lk">✉ [ cosupervisor@sliit.lk ]</a>
+        <div class="sup-dept">[ Title ]<br/>[ Department ] - SLIIT</div>
+        <a href="mailto:cosupervisor@sliit.lk">[ cosupervisor@sliit.lk ]</a>
       </div>
     </div>
 
   </div>
 
-  <!-- ── TEAM ── -->
   <div class="section-title">Research Team</div>
   <div class="team-grid">
 
-    <!-- Member 1 — Hardware -->
     <div class="member-card">
       <div class="member-top">
         <div class="member-avatar">
-          👤
+          <div class="member-photo">
+            <img src="images/team/member-1.jpg" alt="Quintus Joyal profile photo"/>
+          </div>
           <div class="av-label">Member 1</div>
         </div>
         <div class="member-meta">
-          <div class="comp-badge" style="background:rgba(0,212,170,0.1);color:var(--teal);">⚙️ Component I — IoT Hardware</div>
-          <h3>Quintus Joyal​</h3>
+          <div class="comp-badge" style="background:rgba(0,212,170,0.1);color:var(--teal);">Component I - IoT Hardware</div>
+          <h3>Quintus Joyal</h3>
           <span class="id">IT22196088</span>
-          <a href="mailto:it22196088@my.sliit.lk">✉ [ it22196088@my.sliit.lk ]</a>
+          <a href="mailto:it22196088@my.sliit.lk">[ it22196088@my.sliit.lk ]</a>
         </div>
       </div>
       <div class="member-body">
         <div class="focus-title">Research Focus</div>
-        <p>Designed and assembled the three-tier IoT node architecture — main sensor nodes (7 sensors, GPS, INA219), repeater nodes, and end nodes — in watertight solar-powered enclosures. Implemented adaptive transmission intervals, dual-path WiFi/LoRa firmware, sensor calibration, and the DFPlayer audio alert integration.</p>
+        <p>Designed and assembled the three-tier IoT node architecture - main sensor nodes with 7 sensors, GPS, and INA219, plus repeater nodes and end nodes in watertight solar-powered enclosures. Implemented adaptive transmission intervals, dual-path WiFi and LoRa firmware, sensor calibration, and the DFPlayer audio alert integration.</p>
         <div class="tags">
           <span class="tech-tag">ESP32</span><span class="tech-tag">LoRa SX1278</span>
           <span class="tech-tag">DHT11</span><span class="tech-tag">NEO-6M GPS</span><span class="tech-tag">Solar</span>
@@ -220,23 +242,24 @@
       </div>
     </div>
 
-    <!-- Member 2 — LoRa -->
     <div class="member-card">
       <div class="member-top">
         <div class="member-avatar">
-          👤
+          <div class="member-photo">
+            <img src="images/Kashmira.jpeg" alt="P. K. A. Silva profile photo"/>
+          </div>
           <div class="av-label">Member 2</div>
         </div>
         <div class="member-meta">
-          <div class="comp-badge" style="background:rgba(56,189,248,0.1);color:var(--cyan);">📡 Component II — LoRa Routing</div>
+          <div class="comp-badge" style="background:rgba(56,189,248,0.1);color:var(--cyan);">Component II - LoRa Routing</div>
           <h3>P. K. A. Silva</h3>
           <span class="id">IT22571298</span>
-          <a href="mailto:it22571298@my.sliit.lk">✉ [ it22571298@my.sliit.lk ]</a>
+          <a href="mailto:it22571298@my.sliit.lk">[ it22571298@my.sliit.lk ]</a>
         </div>
       </div>
       <div class="member-body">
         <div class="focus-title">Research Focus</div>
-        <p>Developed the complete LoRa mesh communication layer: custom binary SensorPacket struct compression (~88% payload reduction), XOR rolling-counter encryption (C[i]=P[i]⊕K⊕n), and multi-hop routing protocol with loop prevention via hop-trail checking, duplicate suppression via 15-entry timestamp cache, and randomised 1.5–6 s collision-avoidance backoff.</p>
+        <p>Developed the complete LoRa mesh communication layer: custom binary SensorPacket struct compression with about 88 percent payload reduction, XOR rolling-counter encryption, and a multi-hop routing protocol with loop prevention, duplicate suppression, and randomized collision-avoidance backoff.</p>
         <div class="tags">
           <span class="tech-tag">433 MHz</span><span class="tech-tag">XOR Encryption</span>
           <span class="tech-tag">Mesh Routing</span><span class="tech-tag">Binary Compression</span>
@@ -244,23 +267,24 @@
       </div>
     </div>
 
-    <!-- Member 3 — ML -->
     <div class="member-card">
       <div class="member-top">
         <div class="member-avatar">
-          👤
+          <div class="member-photo">
+            <img src="images/dulaksha.png" alt="D. T. Jayanath profile photo"/>
+          </div>
           <div class="av-label">Member 3</div>
         </div>
         <div class="member-meta">
-          <div class="comp-badge" style="background:rgba(167,139,250,0.1);color:var(--purple);">🤖 Component III — ML Prediction</div>
+          <div class="comp-badge" style="background:rgba(167,139,250,0.1);color:var(--purple);">Component III - ML Prediction</div>
           <h3>D. T. Jayanath</h3>
           <span class="id">IT22563446</span>
-          <a href="mailto:it22563446@my.sliit.lk">✉ [ it22563446@my.sliit.lk ]</a>
+          <a href="mailto:it22563446@my.sliit.lk">[ it22563446@my.sliit.lk ]</a>
         </div>
       </div>
       <div class="member-body">
         <div class="focus-title">Research Focus</div>
-        <p>Constructed the 10-year Moragaswewa gauging station dataset (2015–2025, 4,383 records, 11 features), applied SMOTE oversampling to address 1.8% flood prevalence, and evaluated five ML classifiers under 5-fold GridSearchCV tuning. Logistic Regression selected — highest recall (99.42%), FN = 3 on 1,096-record test set, minimal ESP32 inference overhead.</p>
+        <p>Constructed the 10-year Moragaswewa gauging station dataset from 2015 to 2025, applied SMOTE oversampling to address the 1.8 percent flood prevalence, and evaluated five ML classifiers under tuned validation. Logistic Regression was selected for its 99.42 percent recall, only 3 false negatives, and low ESP32 inference overhead.</p>
         <div class="tags">
           <span class="tech-tag">scikit-learn</span><span class="tech-tag">SMOTE</span>
           <span class="tech-tag">XGBoost</span><span class="tech-tag">Random Forest</span><span class="tech-tag">SVM</span>
@@ -268,23 +292,24 @@
       </div>
     </div>
 
-    <!-- Member 4 — Dashboard -->
     <div class="member-card">
       <div class="member-top">
         <div class="member-avatar">
-          👤
+          <div class="member-photo">
+            <img src="images/Lakshitha.png" alt="D. H. Lakshitha profile photo"/>
+          </div>
           <div class="av-label">Member 4</div>
         </div>
         <div class="member-meta">
-          <div class="comp-badge" style="background:rgba(251,191,36,0.1);color:var(--amber);">📊 Component IV — Dashboard & Management</div>
+          <div class="comp-badge" style="background:rgba(251,191,36,0.1);color:var(--amber);">Component IV - Dashboard and Management</div>
           <h3>D. H. Lakshitha</h3>
           <span class="id">IT22617446</span>
-          <a href="mailto:it22617446@my.sliit.lk">✉ [ it22617446@my.sliit.lk ]</a>
+          <a href="mailto:it22617446@my.sliit.lk">[ it22617446@my.sliit.lk ]</a>
         </div>
       </div>
       <div class="member-body">
         <div class="focus-title">Research Focus</div>
-        <p>Built the centralised Laravel web dashboard — REST API for telemetry ingestion (with full LoRa hop trail), real-time geographical node visualisation, Rivernet.lk live river level integration, ML flood risk display (Low/Moderate/High/Critical), SMS alert dispatch, DFPlayer audio trigger polling, geo-tagged citizen emergency heat map, and role-based access control.</p>
+        <p>Built the centralized Laravel web dashboard with REST API telemetry ingestion, real-time geographical node visualization, Rivernet.lk river level integration, ML flood risk display, SMS alert dispatch, DFPlayer audio trigger polling, geo-tagged citizen emergency heat maps, and role-based access control.</p>
         <div class="tags">
           <span class="tech-tag">Laravel</span><span class="tech-tag">REST API</span>
           <span class="tech-tag">SMS Alerts</span><span class="tech-tag">Heatmap</span><span class="tech-tag">RBAC</span>
@@ -294,7 +319,6 @@
 
   </div>
 
-  <!-- ── PROJECT INFO ── -->
   <div class="section-title">Project Information</div>
   <div class="project-info">
     <div class="info-card">
@@ -311,22 +335,21 @@
       <div class="info-row"><span class="key">Deployment</span><span class="val">Deduru Oya Basin, LK</span></div>
       <div class="info-row"><span class="key">Communication</span><span class="val">LoRa 433 MHz + WiFi</span></div>
       <div class="info-row"><span class="key">Sensors per Node</span><span class="val">7 parameters</span></div>
-      <div class="info-row"><span class="key">ML Training Data</span><span class="val">10 years (2015–2025)</span></div>
+      <div class="info-row"><span class="key">ML Training Data</span><span class="val">10 years (2015-2025)</span></div>
       <div class="info-row"><span class="key">Best ML Recall</span><span class="val">99.42% (FN = 3)</span></div>
       <div class="info-row"><span class="key">Prototype Cost</span><span class="val">Rs. 34,740 (~$115)</span></div>
     </div>
   </div>
 
-  <!-- About project -->
   <div class="card">
     <h2>About the Project</h2>
     <p>
       REMESH (Resilient Mesh Sensor Hub) is a final-year research project developed at SLIIT, Sri Lanka,
-      motivated by the November 2025 Cyclone Ditwah flood event in the Deduru Oya river basin — which
+      motivated by the November 2025 Cyclone Ditwah flood event in the Deduru Oya river basin, which
       affected over 340 Grama Niladhari Divisions across Puttalam and Kurunegala Districts.
       The project develops a low-cost, fully offline-capable flood early warning system that operates
-      without internet or cloud infrastructure dependency. All four components — IoT hardware, LoRa
-      mesh, ML prediction, and dashboard — were lab-built and tested at a total hardware cost of
+      without internet or cloud infrastructure dependency. All four components - IoT hardware, LoRa
+      mesh, ML prediction, and dashboard - were built and tested at a total hardware cost of
       Rs. 34,740 (~$115 USD). The system achieves 99.42% ML flood recall with only 3 false negatives
       on a real 10-year hydrological dataset from the Moragaswewa gauging station.
     </p>
@@ -336,15 +359,16 @@
       <span class="tech-tag">Machine Learning</span>
       <span class="tech-tag">Deduru Oya Basin</span>
       <span class="tech-tag">Sri Lanka</span>
-      <span class="tech-tag">SLIIT 2024–2025</span>
+      <span class="tech-tag">SLIIT 2024-2025</span>
     </div>
   </div>
 
 </div>
 
 <footer>
-  <strong>REMESH</strong> — Resilient Mesh Sensor Hub &nbsp;|&nbsp; SLIIT Research Project 2024–2025
+  <strong>REMESH</strong> - Resilient Mesh network for disaster managemant &nbsp;|&nbsp; SLIIT Research Project 2025-2026
 </footer>
 <script src="js/main.js"></script>
 </body>
 </html>
+
