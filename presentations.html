@@ -3,53 +3,108 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Presentations — REMESH</title>
+<title>Presentations - REMESH</title>
 <link rel="stylesheet" href="css/style.css"/>
 <style>
-.slide-card {
-  background: var(--card); border: 1px solid var(--border);
-  border-radius: var(--radius); overflow: hidden;
-  transition: transform 0.25s, border-color 0.25s;
-  text-decoration: none; display: block;
+.present-shell {
+  display: grid;
+  gap: 1.4rem;
 }
 
-.slide-card:hover { transform: translateY(-4px); border-color: var(--teal); }
+.present-intro {
+  background: linear-gradient(135deg, rgba(15,168,141,0.08), rgba(46,143,212,0.05));
+  border: 1px solid rgba(15,168,141,0.16);
+  border-radius: 22px;
+  padding: 1.2rem 1.3rem;
+  color: var(--text2);
+  font-size: 0.86rem;
+  line-height: 1.72;
+}
+
+.slide-card {
+  background: rgba(255,255,255,0.92);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  overflow: hidden;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  text-decoration: none;
+  display: block;
+  box-shadow: var(--shadow-soft);
+}
+
+.slide-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(15,168,141,0.34);
+  box-shadow: var(--shadow);
+}
 
 .slide-thumb {
-  width: 100%; height: 160px;
-  background: var(--panel);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 2.5rem; border-bottom: 1px solid var(--border);
+  width: 100%;
+  height: 168px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.35rem;
+  border-bottom: 1px solid var(--border);
   position: relative;
 }
 
 .slide-thumb .slide-num {
-  position: absolute; bottom: 10px; right: 12px;
-  font-family: var(--font-head); font-weight: 800;
-  font-size: 2.5rem; color: rgba(0,201,167,0.06);
+  position: absolute;
+  bottom: 10px;
+  right: 12px;
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 2.5rem;
+  color: rgba(15,168,141,0.08);
 }
 
 .slide-info { padding: 1.2rem; }
-
 .slide-info h3 {
-  font-family: var(--font-head); font-weight: 700;
-  font-size: 0.9rem; color: var(--text); margin-bottom: 0.3rem;
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text);
+  margin-bottom: 0.3rem;
 }
 
-.slide-info .slide-date { font-size: 0.75rem; color: var(--muted); margin-bottom: 0.7rem; }
+.slide-info .slide-date {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-bottom: 0.7rem;
+}
 
-.slide-info .slide-topics { font-size: 0.78rem; color: var(--muted); line-height: 1.6; }
+.slide-info .slide-topics {
+  font-size: 0.8rem;
+  color: var(--text2);
+  line-height: 1.68;
+}
 
 .slide-info .dl-btn {
-  display: inline-flex; align-items: center; gap: 0.4rem;
-  margin-top: 0.9rem; font-size: 0.78rem; font-weight: 600;
-  color: var(--teal); text-decoration: none;
-  background: rgba(0,201,167,0.08); border: 1px solid rgba(0,201,167,0.2);
-  border-radius: 6px; padding: 0.35rem 0.8rem;
-  transition: background 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.95rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--teal);
+  text-decoration: none;
+  background: rgba(15,168,141,0.08);
+  border: 1px solid rgba(15,168,141,0.18);
+  border-radius: 999px;
+  padding: 0.42rem 0.92rem;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.slide-info .dl-btn:hover { background: rgba(0,201,167,0.14); }
+.slide-info .dl-btn:hover {
+  background: rgba(15,168,141,0.14);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 640px) {
+  .slide-thumb { height: 144px; font-size: 2rem; }
+  .present-intro { padding: 1rem; border-radius: 18px; }
+}
 </style>
 </head>
 <body>
@@ -70,74 +125,72 @@
 
 <div class="page-header">
   <div class="tag">Presentations</div>
-  <h1>Slides & Presentations</h1>
-  <p>All presentation slides used throughout the REMESH project, from proposal to final.</p>
+  <h1>Slides and Presentations</h1>
+  <p>All presentation decks used throughout the REMESH project, from proposal stage to the final showcase.</p>
 </div>
 
 <div class="container">
+  <div class="present-shell">
+    <div class="present-intro">
+      The presentation archive is arranged as a visual sequence so visitors can follow how the project matured over time, from concept framing to validation and final system demonstration.
+    </div>
 
-  <div class="section-title">Past & Upcoming Presentations</div>
+    <div class="section-title">Past & Upcoming Presentations</div>
 
-  <div class="grid-2" style="margin-bottom:2rem;">
+    <div class="grid-2" style="margin-bottom:2rem;">
+      <a href="docs/25-26J-011_Proposal.pdf" class="slide-card">
+        <div class="slide-thumb" style="background:linear-gradient(135deg,rgba(15,168,141,0.1),rgba(46,143,212,0.05));">
+          PR
+          <div class="slide-num">01</div>
+        </div>
+        <div class="slide-info">
+          <h3>Proposal Presentation</h3>
+          <div class="slide-date">September 2025 &nbsp;|&nbsp; <span style="color:var(--teal);">Completed</span></div>
+          <div class="slide-topics">Problem statement, research objectives, proposed methodology, system overview, and team roles.</div>
+          <span class="dl-btn">Download Slides</span>
+        </div>
+      </a>
 
-    <!-- Proposal -->
-    <a href="docs/25-26J-011_Proposal.pdf" class="slide-card">
-      <div class="slide-thumb" style="background:linear-gradient(135deg,rgba(0,201,167,0.08),rgba(56,189,248,0.05));">
-        🎯
-        <div class="slide-num">01</div>
-      </div>
-      <div class="slide-info">
-        <h3>Proposal Presentation</h3>
-        <div class="slide-date">September 2025 &nbsp;·&nbsp; <span style="color:var(--teal);">Completed</span></div>
-        <div class="slide-topics">Problem statement · Research objectives · Proposed methodology · System overview · Team roles</div>
-        <span class="dl-btn">⬇ Download Slides</span>
-      </div>
-    </a>
+      <a href="docs/25-26J-011_PP1.pdf" class="slide-card">
+        <div class="slide-thumb" style="background:linear-gradient(135deg,rgba(46,143,212,0.1),rgba(131,117,227,0.05));">
+          P1
+          <div class="slide-num">02</div>
+        </div>
+        <div class="slide-info">
+          <h3>Progress Presentation - 1</h3>
+          <div class="slide-date">January 2026 &nbsp;|&nbsp; <span style="color:var(--teal);">Completed</span></div>
+          <div class="slide-topics">Hardware assembly, LoRa firmware, binary compression, XOR encryption, and dataset construction progress.</div>
+          <span class="dl-btn">Download Slides</span>
+        </div>
+      </a>
 
-    <!-- PP1 -->
-    <a href="docs/25-26J-011_PP1.pdf" class="slide-card">
-      <div class="slide-thumb" style="background:linear-gradient(135deg,rgba(56,189,248,0.08),rgba(167,139,250,0.05));">
-        🔧
-        <div class="slide-num">02</div>
-      </div>
-      <div class="slide-info">
-        <h3>Progress Presentation — 1</h3>
-        <div class="slide-date">January 2026 &nbsp;·&nbsp; <span style="color:var(--teal);">Completed</span></div>
-        <div class="slide-topics">Hardware assembly · LoRa firmware · Binary compression · XOR encryption · Dataset construction progress</div>
-        <span class="dl-btn">⬇ Download Slides</span>
-      </div>
-    </a>
+      <a href="docs/25-26J-011_PP2.pdf" class="slide-card">
+        <div class="slide-thumb" style="background:linear-gradient(135deg,rgba(131,117,227,0.1),rgba(207,154,22,0.05));">
+          P2
+          <div class="slide-num">03</div>
+        </div>
+        <div class="slide-info">
+          <h3>Progress Presentation - 2</h3>
+          <div class="slide-date">March 2026 &nbsp;|&nbsp; <span style="color:var(--teal);">Completed</span></div>
+          <div class="slide-topics">ML model results, SMOTE balancing, dashboard demo, lab testing, and end-to-end latency findings.</div>
+          <span class="dl-btn">Download Slides</span>
+        </div>
+      </a>
 
-    <!-- PP2 -->
-    <a href="docs/25-26J-011_PP2.pdf" class="slide-card">
-      <div class="slide-thumb" style="background:linear-gradient(135deg,rgba(167,139,250,0.08),rgba(245,158,11,0.05));">
-        📊
-        <div class="slide-num">03</div>
-      </div>
-      <div class="slide-info">
-        <h3>Progress Presentation — 2</h3>
-        <div class="slide-date">March 2026 &nbsp;·&nbsp; <span style="color:var(--teal);">Completed</span></div>
-        <div class="slide-topics">ML model results · SMOTE results · Dashboard demo · Lab testing results · End-to-end latency</div>
-        <span class="dl-btn">⬇ Download Slides</span>
-      </div>
-    </a>
-
-    <!-- Final -->
-    <a href="docs/slides-final.pdf" class="slide-card">
-      <div class="slide-thumb" style="background:linear-gradient(135deg,rgba(245,158,11,0.06),rgba(0,201,167,0.04));">
-        🏆
-        <div class="slide-num">04</div>
-      </div>
-      <div class="slide-info">
-        <h3>Final Presentation</h3>
-        <div class="slide-date">May 2026 &nbsp;·&nbsp; <span style="color:var(--muted);">Upcoming</span></div>
-        <div class="slide-topics">Complete system demo · Full results · Contribution summary · Future work · Live node demonstration</div>
-        <span class="dl-btn" style="color:var(--muted);border-color:var(--border);background:transparent;">Not Yet Available</span>
-      </div>
-    </a>
-
+      <a href="docs/slides-final.pdf" class="slide-card">
+        <div class="slide-thumb" style="background:linear-gradient(135deg,rgba(207,154,22,0.08),rgba(15,168,141,0.05));">
+          FN
+          <div class="slide-num">04</div>
+        </div>
+        <div class="slide-info">
+          <h3>Final Presentation</h3>
+          <div class="slide-date">May 2026 &nbsp;|&nbsp; <span style="color:var(--muted);">Upcoming</span></div>
+          <div class="slide-topics">Complete system demo, consolidated results, contribution summary, future work, and live node demonstration.</div>
+          <span class="dl-btn" style="color:var(--muted);border-color:var(--border);background:transparent;">Not Yet Available</span>
+        </div>
+      </a>
+    </div>
   </div>
-
 </div>
 
 <footer>
@@ -146,4 +199,3 @@
 <script src="js/main.js"></script>
 </body>
 </html>
-

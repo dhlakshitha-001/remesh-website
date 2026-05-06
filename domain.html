@@ -7,6 +7,20 @@
 <link rel="stylesheet" href="css/style.css"/>
 <style>
 .comp-badge{display:inline-flex;align-items:center;gap:0.3rem;font-size:0.68rem;font-weight:700;padding:0.22rem 0.65rem;border-radius:20px;margin-bottom:0.6rem;}
+.domain-flow {
+  display: grid;
+  gap: 2rem;
+}
+.domain-copy {
+  max-width: 940px;
+}
+.domain-copy p,
+.domain-copy li {
+  text-wrap: pretty;
+}
+@media (max-width: 640px) {
+  .domain-flow { gap: 1.4rem; }
+}
 </style>
 </head>
 <body>
@@ -32,11 +46,12 @@
 </div>
 
 <div class="container">
+<div class="domain-flow">
 
   <!-- ── LITERATURE SURVEY ── -->
   <div class="section-title">Literature Survey</div>
 
-  <div style="margin-bottom:2.5rem;">
+  <div class="domain-copy" style="margin-bottom:2.5rem;">
     <div class="lit-ref">
       <div class="ref-title">IoT-Based Flood Monitoring Systems</div>
       <p>Basha &amp; Rus (2007) established that wireless sensor networks at river monitoring points deliver significantly earlier warnings than centralised systems. Keoduangsine &amp; Goodwin (2012) demonstrated that GPRS/internet-dependent systems lose connectivity precisely during active flood events — the fundamental failure mode REMESH is designed to overcome. Rizal et al. (2024) showed multi-sensor IoT designs integrating water level, flow, rainfall, temperature, and humidity improve flood status classification significantly over single-sensor approaches, validating the seven-sensor main node design.</p>
@@ -193,7 +208,7 @@
   <!-- ── METHODOLOGY ── -->
   <div class="section-title">Methodology</div>
 
-  <div style="margin-bottom:2.5rem;">
+  <div class="domain-copy" style="margin-bottom:2.5rem;">
     <div class="method-step">
       <div class="step-icon">⚙️</div>
       <div>
@@ -346,6 +361,7 @@
     </div>
   </div>
 
+</div>
 </div>
 
 <footer>

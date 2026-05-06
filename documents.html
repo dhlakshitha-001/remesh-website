@@ -3,8 +3,67 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Documents — REMESH</title>
+<title>Documents - REMESH</title>
 <link rel="stylesheet" href="css/style.css"/>
+<style>
+.docs-shell {
+  display: grid;
+  gap: 1.6rem;
+}
+
+.docs-intro {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.docs-intro p {
+  color: var(--text2);
+  font-size: 0.86rem;
+  line-height: 1.74;
+  max-width: 760px;
+}
+
+.docs-count {
+  flex-shrink: 0;
+  padding: 0.38rem 0.82rem;
+  border-radius: 999px;
+  background: rgba(15,168,141,0.08);
+  border: 1px solid rgba(15,168,141,0.16);
+  color: var(--teal);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.docs-group {
+  background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(245,251,255,0.88));
+  border: 1px solid rgba(217,231,239,0.95);
+  border-radius: 24px;
+  padding: 1.35rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.docs-group .section-title {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.docs-group.single {
+  padding-bottom: 0.9rem;
+}
+
+.docs-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+@media (max-width: 640px) {
+  .docs-intro { flex-direction: column; gap: 0.65rem; }
+  .docs-group { padding: 1rem; border-radius: 18px; }
+}
+</style>
 </head>
 <body>
 
@@ -25,137 +84,136 @@
 <div class="page-header">
   <div class="tag">Documents</div>
   <h1>Project Documentation</h1>
-  <p>All project documents produced throughout the REMESH research project. Click to view or download.</p>
+  <p>All project documents produced throughout the REMESH research project. Click any card to view or download the file.</p>
 </div>
 
 <div class="container">
+  <div class="docs-shell">
 
-  <!-- TAF -->
-  <div class="section-title">TAF</div>
-  <a href="docs/TAF_25-26J-011.pdf" class="doc-link" style="display:flex;margin-bottom:1.5rem;">
-    <div class="doc-icon">📋</div>
-    <div>
-      <div class="doc-name">TAF Document</div>
-      <div class="doc-meta">Topic Assessment Form - REMESH</div>
+    <div class="docs-intro">
+      <p>Everything is grouped by stage so visitors can move from early proposal material to final documentation without hunting through a long unstructured list.</p>
+      <div class="docs-count">9 files</div>
     </div>
-    <span class="doc-badge badge-pending">View / Download</span>
-  </a>
 
-  <!-- Project Charter -->
-  <!--
-  <div class="section-title">Project Charter</div>
-  <a href="docs/project-charter.pdf" class="doc-link" style="display:flex;margin-bottom:1.5rem;">
-    <div class="doc-icon">📋</div>
-    <div>
-      <div class="doc-name">Project Charter</div>
-      <div class="doc-meta">Scope, objectives, team roles, and project plan — REMESH</div>
+    <div class="docs-group single">
+      <div class="section-title">TAF</div>
+      <a href="docs/TAF_25-26J-011.pdf" class="doc-link">
+        <div class="doc-icon">TA</div>
+        <div>
+          <div class="doc-name">TAF Document</div>
+          <div class="doc-meta">Topic Assessment Form - REMESH</div>
+        </div>
+        <span class="doc-badge badge-pending">View / Download</span>
+      </a>
     </div>
-    <span class="doc-badge badge-pending">View / Download</span>
-  </a>
-  -->
 
-  <!-- Checklists -->
-  <div class="section-title">Individual Proposal Documents</div>
-  <div style="display:flex;flex-direction:column;gap:0.7rem;margin-bottom:1.5rem;">
-    <a href="docs/Individual Proposals/IT22196088_Proposal_Report.pdf" class="doc-link">
-      <div class="doc-icon">✅</div>
-      <div>
-        <div class="doc-name">Member 1 - Proposal Documents</div>
-        <div class="doc-meta">Supervisor sign-off project proposal - (individual)</div>
+    <div class="docs-group">
+      <div class="section-title">Individual Proposal Documents</div>
+      <div class="docs-stack">
+        <a href="docs/Individual Proposals/IT22196088_Proposal_Report.pdf" class="doc-link">
+          <div class="doc-icon">M1</div>
+          <div>
+            <div class="doc-name">Member 1 - Proposal Documents</div>
+            <div class="doc-meta">Supervisor sign-off project proposal - individual</div>
+          </div>
+          <span class="doc-badge badge-pending">View / Download</span>
+        </a>
+        <a href="docs/Individual Proposals/IT22571298-Proposal Report Draft.pdf" class="doc-link">
+          <div class="doc-icon">M2</div>
+          <div>
+            <div class="doc-name">Member 2 - Proposal Documents</div>
+            <div class="doc-meta">Supervisor sign-off project proposal - individual</div>
+          </div>
+          <span class="doc-badge badge-pending">View / Download</span>
+        </a>
+        <a href="docs/Individual Proposals/IT22563446_Proposal_Report.pdf" class="doc-link">
+          <div class="doc-icon">M3</div>
+          <div>
+            <div class="doc-name">Member 3 - Proposal Documents</div>
+            <div class="doc-meta">Supervisor sign-off project proposal - individual</div>
+          </div>
+          <span class="doc-badge badge-pending">View / Download</span>
+        </a>
+        <a href="docs/Individual Proposals/IT22617446-Research_proposal_singned.pdf" class="doc-link">
+          <div class="doc-icon">M4</div>
+          <div>
+            <div class="doc-name">Member 4 - Proposal Documents</div>
+            <div class="doc-meta">Supervisor sign-off project proposal - individual</div>
+          </div>
+          <span class="doc-badge badge-pending">View / Download</span>
+        </a>
       </div>
-      <span class="doc-badge badge-pending">View / Download</span>
-    </a>
-    <a href="docs/Individual Proposals/IT22571298-Proposal Report Draft.pdf" class="doc-link">
-      <div class="doc-icon">✅</div>
-      <div>
-        <div class="doc-name">Member 2 - Proposal Documents</div>
-        <div class="doc-meta">Supervisor sign-off project proposal - (individual)</div>
+    </div>
+
+    <div class="docs-group">
+      <div class="section-title">DD & SRS Documents</div>
+      <div class="docs-stack">
+        <a href="docs/Design Document 25-26J-011.pdf" class="doc-link">
+          <div class="doc-icon">DD</div>
+          <div>
+            <div class="doc-name">DD Document</div>
+            <div class="doc-meta">Detailed design specifications for the REMESH system</div>
+          </div>
+          <span class="doc-badge badge-pending">View / Download</span>
+        </a>
+        <a href="docs/SRS_25-26J-011.pdf" class="doc-link">
+          <div class="doc-icon">SR</div>
+          <div>
+            <div class="doc-name">SRS Document</div>
+            <div class="doc-meta">Software requirements specification for the REMESH system</div>
+          </div>
+          <span class="doc-badge badge-pending">View / Download</span>
+        </a>
       </div>
-      <span class="doc-badge badge-pending">View / Download</span>
-    </a>
-    <a href="docs/Individual Proposals/IT22563446_Proposal_Report.pdf" class="doc-link">
-      <div class="doc-icon">✅</div>
-      <div>
-        <div class="doc-name">Member 3 - Proposal Documents</div>
-        <div class="doc-meta">Supervisor sign-off project proposal - (individual)</div>
+    </div>
+
+    <div class="docs-group">
+      <div class="section-title">Final Documents</div>
+      <div class="docs-stack">
+        <a href="docs/final-combined.pdf" class="doc-link">
+          <div class="doc-icon">FC</div>
+          <div>
+            <div class="doc-name">Final Document - Combined (Main)</div>
+            <div class="doc-meta">Complete integrated REMESH research report</div>
+          </div>
+          <span class="doc-badge badge-pending">View / Download</span>
+        </a>
+        <a href="docs/final-hardware.pdf" class="doc-link">
+          <div class="doc-icon">C1</div>
+          <div>
+            <div class="doc-name">Component I - Distributed IoT Nodes</div>
+            <div class="doc-meta">Hardware design, sensor integration, node firmware</div>
+          </div>
+          <span class="doc-badge badge-pending">View / Download</span>
+        </a>
+        <a href="docs/final-lora.pdf" class="doc-link">
+          <div class="doc-icon">C2</div>
+          <div>
+            <div class="doc-name">Component II - LoRa Routing, Encryption and Compression</div>
+            <div class="doc-meta">Mesh routing protocol, XOR encryption, binary compression</div>
+          </div>
+          <span class="doc-badge badge-pending">View / Download</span>
+        </a>
+        <a href="docs/final-ml.pdf" class="doc-link">
+          <div class="doc-icon">C3</div>
+          <div>
+            <div class="doc-name">Component III - ML Flood Prediction</div>
+            <div class="doc-meta">Dataset, SMOTE, 5-classifier comparison, model deployment</div>
+          </div>
+          <span class="doc-badge badge-pending">View / Download</span>
+        </a>
+        <a href="docs/final-dashboard.pdf" class="doc-link">
+          <div class="doc-icon">C4</div>
+          <div>
+            <div class="doc-name">Component IV - Central Management System</div>
+            <div class="doc-meta">Central dashboard, alerting system, citizen reporting</div>
+          </div>
+          <span class="doc-badge badge-pending">View / Download</span>
+        </a>
       </div>
-      <span class="doc-badge badge-pending">View / Download</span>
-    </a>
-    <a href="docs/Individual Proposals/IT22617446-Research_proposal_singned.pdf" class="doc-link">
-      <div class="doc-icon">✅</div>
-      <div>
-        <div class="doc-name">Member 4 - Proposal Documents</div>
-        <div class="doc-meta">Supervisor sign-off project proposal - (individual)</div>
-      </div>
-      <span class="doc-badge badge-pending">View / Download</span>
-    </a>
+    </div>
+
   </div>
-
-  <div class="section-title">DD & SRS Documents</div>
-  <div style="display:flex;flex-direction:column;gap:0.7rem;margin-bottom:1.5rem;">
-    <a href="docs/Design Document 25-26J-011.pdf" class="doc-link">
-      <div class="doc-icon">✅</div>
-      <div>
-        <div class="doc-name">DD Document</div>
-        <div class="doc-meta">Detailed design specifications for the REMESH system</div>
-      </div>
-      <span class="doc-badge badge-pending">View / Download</span>
-    </a>
-    <a href="docs/SRS_25-26J-011.pdf" class="doc-link">
-      <div class="doc-icon">✅</div>
-      <div>
-        <div class="doc-name">SRS Document</div>
-        <div class="doc-meta">Software requirements specification for the REMESH system</div>
-      </div>
-      <span class="doc-badge badge-pending">View / Download</span>
-    </a>
-  </div>
-
-  <!-- Final Documents -->
-  <div class="section-title">Final Documents</div>
-  <div style="display:flex;flex-direction:column;gap:0.7rem;">
-    <a href="docs/final-combined.pdf" class="doc-link">
-      <div class="doc-icon">📚</div>
-      <div>
-        <div class="doc-name">Final Document — Combined (Main)</div>
-        <div class="doc-meta">Complete integrated REMESH research report</div>
-      </div>
-      <span class="doc-badge badge-pending">View / Download</span>
-    </a>
-    <a href="docs/final-hardware.pdf" class="doc-link">
-      <div class="doc-icon">🔧</div>
-      <div>
-        <div class="doc-name">Component I — Distributed IoT Nodes</div>
-        <div class="doc-meta">Hardware design, sensor integration, node firmware</div>
-      </div>
-      <span class="doc-badge badge-pending">View / Download</span>
-    </a>
-    <a href="docs/final-lora.pdf" class="doc-link">
-      <div class="doc-icon">📡</div>
-      <div>
-        <div class="doc-name">Component II — LoRa Routing, Encryption & Compression</div>
-        <div class="doc-meta">Mesh routing protocol, XOR encryption, binary compression</div>
-      </div>
-      <span class="doc-badge badge-pending">View / Download</span>
-    </a>
-    <a href="docs/final-ml.pdf" class="doc-link">
-      <div class="doc-icon">🤖</div>
-      <div>
-        <div class="doc-name">Component III — ML Flood Prediction</div>
-        <div class="doc-meta">Dataset, SMOTE, 5-classifier comparison, model deployment</div>
-      </div>
-      <span class="doc-badge badge-pending">View / Download</span>
-    </a>
-    <a href="docs/final-dashboard.pdf" class="doc-link">
-      <div class="doc-icon">📊</div>
-      <div>
-        <div class="doc-name">Component IV — Central Management System</div>
-        <div class="doc-meta">Central dashboard, alerting system, citizen reporting</div>
-      </div>
-      <span class="doc-badge badge-pending">View / Download</span>
-    </a>
-  </div>
-
 </div>
 
 <footer>
@@ -164,4 +222,3 @@
 <script src="js/main.js"></script>
 </body>
 </html>
-
