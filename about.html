@@ -26,9 +26,19 @@
 }
 
 .sup-avatar {
-  width: 72px; height: 72px; border-radius: 50%;
-  background: var(--panel); border: 2px dashed var(--border);
-  display: flex; align-items: center; justify-content: center; font-size: 1.7rem;
+  width: 92px; height: 92px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: linear-gradient(180deg, #f7fbfe, #edf6fb);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
+}
+
+.sup-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .sup-avatar-label { font-size: 0.62rem; color: var(--muted); text-align:center; }
@@ -202,27 +212,31 @@
 
     <div class="sup-card primary">
       <div class="sup-avatar-wrap">
-        <div class="sup-avatar">SP</div>
+        <div class="sup-avatar">
+          <img src="images/Uditha_sir.jpeg" alt="Supervisor photo"/>
+        </div>
         <div class="sup-avatar-label">Supervisor</div>
       </div>
       <div class="sup-info">
         <div class="sup-type">Supervisor</div>
         <h3>Mr. Uditha Dharmakeerthi</h3>
-        <div class="sup-dept">[ Title ]<br/>[ Department ] - SLIIT</div>
-        <a href="mailto:supervisor@sliit.lk">[ supervisor@sliit.lk ]</a>
+        <div class="sup-dept">Computer Systems Engineering - SLIIT</div>
+        <a href="mailto:uditha.d@sliit.lk">uditha.d@sliit.lk</a>
       </div>
     </div>
 
     <div class="sup-card secondary">
       <div class="sup-avatar-wrap">
-        <div class="sup-avatar">CS</div>
+        <div class="sup-avatar">
+          <img src="images/Amila_sir.jpeg" alt="Co-supervisor photo"/>
+        </div>
         <div class="sup-avatar-label">Co-Supervisor</div>
       </div>
       <div class="sup-info">
         <div class="sup-type">Co-Supervisor</div>
         <h3>Mr. Amila Senarathne</h3>
-        <div class="sup-dept">[ Title ]<br/>[ Department ] - SLIIT</div>
-        <a href="mailto:cosupervisor@sliit.lk">[ cosupervisor@sliit.lk ]</a>
+        <div class="sup-dept">Computer Systems Engineering - SLIIT</div>
+        <a href="mailto:amila.n@sliit.lk">amila.n@sliit.lk</a>
       </div>
     </div>
 
@@ -235,7 +249,7 @@
       <div class="member-top">
         <div class="member-avatar">
           <div class="member-photo">
-            <img src="images/team/member-1.jpg" alt="Quintus Joyal profile photo"/>
+            <img src="images/Joyel.jpeg" alt="Quintus Joyal profile photo"/>
           </div>
           <div class="av-label">Member 1</div>
         </div>
@@ -385,4 +399,3 @@
 <script src="js/main.js"></script>
 </body>
 </html>
-
